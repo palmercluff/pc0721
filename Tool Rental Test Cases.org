@@ -1,0 +1,231 @@
+#+TITLE: Tool Rental Test Cases
+#+AUTHOR: Palmer Cluff
+#+EMAIL: palmercluff@gmail.com
+
+* Test Cases
+** Test Case 1 (PASS)
+*** Checkout Terms
+    - Tool code: JAKR
+    - Checkout date: 9/3/15
+    - Rental Days: 5
+    - Discount: 101%
+
+*** Input/Output
+    #+BEGIN_SRC
+    Tool Type       Brand           Tool Code       
+    Ladder          Werner          LADW            
+    Chainsaw        Stihl           CHNS            
+    Jackhammer      Ridgid          JAKR            
+    Jackhammer      DeWalt          JAKD            
+    Please select which tool that you would like to use based off of tool code: JAKR
+    Please enter the date (MM/DD/YYYY) when you will CHECKOUT the item(s): 9/3/15
+    Please enter how many days you will checkout the item(s) for: 5
+    Please enter an optional discount percent (0 for no discount percent): 101
+    Discount percent must be within 0 and 100
+    Please enter an optional discount percent (0 for no discount percent):
+    #+END_SRC
+
+*** Notes
+    As per the specification, the program does not allow a discount percent greater than 100 and in the case of this implementation, will keep prompting until a valid discount percent is entered.
+
+** Test Case 2 (PASS)
+*** Checkout Terms
+    - Tool code: LADW
+    - Checkout date: 7/2/20
+    - Rental Days: 3
+    - Discount: 10%
+
+*** Input/Output
+    #+BEGIN_SRC
+    Tool Type       Brand           Tool Code       
+    Ladder          Werner          LADW            
+    Chainsaw        Stihl           CHNS            
+    Jackhammer      Ridgid          JAKR            
+    Jackhammer      DeWalt          JAKD            
+    Please select which tool that you would like to use based off of tool code: LADW
+    Please enter the date (MM/DD/YYYY) when you will CHECKOUT the item(s): 7/2/20
+    Please enter how many days you will checkout the item(s) for: 3
+    Please enter an optional discount percent (0 for no discount percent): 10
+    Tool code: LADW
+    Tool type: Ladder
+    Tool brand: Werner
+    Rental days: 3
+    Checkout date: 07-02-20
+    Due date: 07-05-20
+    Daily rental charge:
+    Wed 07-03-20:  $1.99
+    Thu 07-04-20:  $0.0
+    Fri 07-05-20:  $1.99
+    Charge days: 2
+    Pre-discount charge: $3.98
+    Discount percent: 10%
+    Discount amount: $0.40
+    Final Charge: $3.58
+    #+END_SRC
+
+*** Notes
+    As July 4th falls on a weekend, there is no rental charge for this weekday (holiday) for ladder.
+
+** Test Case 3 (PASS)
+*** Checkout Terms
+    - Tool code: CHNS
+    - Checkout date: 7/2/15
+    - Rental Days: 5
+    - Discount: 25%
+
+*** Input/Output
+    #+BEGIN_SRC
+    Tool Type       Brand           Tool Code       
+    Ladder          Werner          LADW            
+    Chainsaw        Stihl           CHNS            
+    Jackhammer      Ridgid          JAKR            
+    Jackhammer      DeWalt          JAKD            
+    Please select which tool that you would like to use based off of tool code: CHNS
+    Please enter the date (MM/DD/YYYY) when you will CHECKOUT the item(s): 7/2/15
+    Please enter how many days you will checkout the item(s) for: 5
+    Please enter an optional discount percent (0 for no discount percent): 25
+    Tool code: CHNS
+    Tool type: Chainsaw
+    Tool brand: Stihl
+    Rental days: 5
+    Checkout date: 07-02-15
+    Due date: 07-07-15
+    Daily rental charge:
+    Wed 07-03-15:  $1.49
+    Thu 07-04-15:  $1.49
+    Fri 07-05-15:  $1.49
+    Sat 07-06-15:  $0.0
+    Sun 07-07-15:  $0.0
+    Charge days: 3
+    Pre-discount charge: $4.47
+    Discount percent: 25%
+    Discount amount: $1.12
+    Final Charge: $3.35
+    #+END_SRC
+
+*** Notes
+    For cahinsaws, since there are only charges for weekends and holidays, there are no charges for Sat. and Sun.
+
+** Test Case 4 (PASS)
+*** Checkout Terms
+    - Tool code: JAKD
+    - Checkout date: 9/3/15
+    - Rental Days: 6
+    - Discount: 0%
+
+*** Input/Output
+    #+BEGIN_SRC
+    Tool Type       Brand           Tool Code       
+    Ladder          Werner          LADW            
+    Chainsaw        Stihl           CHNS            
+    Jackhammer      Ridgid          JAKR            
+    Jackhammer      DeWalt          JAKD            
+    Please select which tool that you would like to use based off of tool code: JAKD
+    Please enter the date (MM/DD/YYYY) when you will CHECKOUT the item(s): 9/3/15
+    Please enter how many days you will checkout the item(s) for: 6
+    Please enter an optional discount percent (0 for no discount percent): 0
+    Tool code: JAKD
+    Tool type: Jackhammer
+    Tool brand: DeWalt
+    Rental days: 6
+    Checkout date: 09-03-15
+    Due date: 09-09-15
+    Daily rental charge:
+    Wed 09-04-15:  $2.99
+    Thu 09-05-15:  $2.99
+    Fri 09-06-15:  $2.99
+    Sat 09-07-15:  $0.0
+    Sun 09-08-15:  $0.0
+    Mon 09-09-15:  $2.99
+    Charge days: 4
+    Pre-discount charge: $11.96
+    Discount percent: 0%
+    Discount amount: $0.00
+    Final Charge: $11.96
+    #+END_SRC
+
+*** Notes
+    For Jackhammer, since no holiday in date range and no charges on weekends.
+
+** Test Case 5 (PASS)
+*** Checkout Terms
+    - Tool code: JAKR
+    - Checkout date: 7/2/15
+    - Rental Days: 9
+    - Discount: 0%
+
+*** Input/Output
+    #+BEGIN_SRC
+    Tool Type       Brand           Tool Code       
+    Ladder          Werner          LADW            
+    Chainsaw        Stihl           CHNS            
+    Jackhammer      Ridgid          JAKR            
+    Jackhammer      DeWalt          JAKD            
+    Please select which tool that you would like to use based off of tool code: JAKR
+    Please enter the date (MM/DD/YYYY) when you will CHECKOUT the item(s): 7/2/15
+    Please enter how many days you will checkout the item(s) for: 9
+    Please enter an optional discount percent (0 for no discount percent): 0
+    Tool code: JAKR
+    Tool type: Jackhammer
+    Tool brand: Ridgid
+    Rental days: 9
+    Checkout date: 07-02-15
+    Due date: 07-11-15
+    Daily rental charge:
+    Wed 07-03-15:  $2.99
+    Thu 07-04-15:  $0.0
+    Fri 07-05-15:  $2.99
+    Sat 07-06-15:  $0.0
+    Sun 07-07-15:  $0.0
+    Mon 07-08-15:  $2.99
+    Tue 07-09-15:  $2.99
+    Wed 07-10-15:  $2.99
+    Thu 07-11-15:  $2.99
+    Charge days: 6
+    Pre-discount charge: $17.94
+    Discount percent: 0%
+    Discount amount: $0.00
+    Final Charge: $17.94
+    #+END_SRC
+
+*** Notes
+    Note that the 4th of July falls on a weekday and no charges on weekends as per requirements.
+
+** Test Case 6 (PASS)
+*** Checkout Terms
+    - Tool code: JAKR
+    - Checkout date: 7/2/20
+    - Rental Days: 4
+    - Discount: 50%
+
+*** Input/Output
+    #+BEGIN_SRC
+    Tool Type       Brand           Tool Code       
+    Ladder          Werner          LADW            
+    Chainsaw        Stihl           CHNS            
+    Jackhammer      Ridgid          JAKR            
+    Jackhammer      DeWalt          JAKD            
+    Please select which tool that you would like to use based off of tool code: JAKR
+    Please enter the date (MM/DD/YYYY) when you will CHECKOUT the item(s): 7/2/20
+    Please enter how many days you will checkout the item(s) for: 4
+    Please enter an optional discount percent (0 for no discount percent): 50
+    Tool code: JAKR
+    Tool type: Jackhammer
+    Tool brand: Ridgid
+    Rental days: 4
+    Checkout date: 07-02-20
+    Due date: 07-06-20
+    Daily rental charge:
+    Wed 07-03-20:  $2.99
+    Thu 07-04-20:  $0.0
+    Fri 07-05-20:  $2.99
+    Sat 07-06-20:  $0.0
+    Charge days: 2
+    Pre-discount charge: $5.98
+    Discount percent: 50%
+    Discount amount: $2.99
+    Final Charge: $2.99
+    #+END_SRC
+
+*** Notes
+    Correct charges as per requirements
